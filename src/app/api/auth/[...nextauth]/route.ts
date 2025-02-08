@@ -10,8 +10,8 @@ export const authOptions: NextAuthOptions = {
   providers: [
     // Google Authentication
     GoogleProvider({
-      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET as string,
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
 
     // Email/Password Authentication (SignUp + SignIn)
@@ -124,7 +124,7 @@ export const authOptions: NextAuthOptions = {
     error: "/signin", // Redirect to sign-in page on error
   },
 
-  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 const handler = NextAuth(authOptions);
@@ -143,8 +143,8 @@ export { handler as GET, handler as POST };
 //   providers: [
 //     // Google Authentication
 //     GoogleProvider({
-//       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string,
-//       clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET as string,
+//       clientId: process.env.GOOGLE_CLIENT_ID as string,
+//       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
 //     }),
 
 //     // Email/Password Authentication
@@ -236,7 +236,7 @@ export { handler as GET, handler as POST };
 //   },
 
 //   // Secret used for JWT encoding and decoding
-//   secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
+//   secret: process.env.NEXTAUTH_SECRET,
 // };
 
 // const handler = NextAuth(authOptions);
