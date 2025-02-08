@@ -1,5 +1,6 @@
 "use client";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -21,13 +22,16 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           {/* Profile Image with hover effect */}
           <div className="relative">
-            <img
-              src={session.user.image || defaultProfileImage} // Show default image if no profile image
+            <Image
+              objectFit="cover"
+              src={session?.user?.image || defaultProfileImage} // Show default image if no profile image
               alt="Profile"
               className="w-8 h-8 rounded-full"
+              width={32} // Specify width
+              height={32} // Specify height
             />
             <span className="absolute bottom-0 left-0 right-0 text-xs text-center bg-gray-900 text-white rounded-full opacity-0 hover:opacity-100 transition-opacity">
-              {session.user.name}
+              {session?.user?.name}
             </span>
           </div>
 
